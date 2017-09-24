@@ -1,0 +1,41 @@
+import { Injectable } from '@angular/core';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import {Product} from './product';
+
+@Injectable()
+export class ProductService {
+
+  private _getUrl = '/api/products';
+  private _postUrl = '/api/products';
+  private _putUrl = '/api/products/';
+  private _deleteUrl = '/api/products/';
+
+  constructor(private _http: Http) {
+  }
+
+  getListProducts() {
+    return this._http.get(this._getUrl)
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  createProduct(product: Product) {
+    return this._http.post(this._postUrl, product)
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  updateProduct(product: Product) {
+    return this._http.put(this._putUrl + product._id, product)
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  deleteProduct(product: Product) {
+    return this._http.delete(this._deleteUrl + product._id, product)
+      .map(res => res.json())
+      .toPromise();
+  }
+}

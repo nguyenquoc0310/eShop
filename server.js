@@ -29,7 +29,7 @@ app.use(morgan('dev'));
 
 app.use('/api', api);
 
-app.use(forceSSL());
+//app.use(forceSSL());
 
 app.get('*', function (req, res) {
   res.sendfile(path.join(__dirname, 'dist/index.html'));
