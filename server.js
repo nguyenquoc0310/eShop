@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
@@ -32,7 +33,7 @@ app.use(morgan('dev'));
 
 app.use('/api', api);
 
-//app.use(cookieP)
+app.use(cookieParser());
 
 app.use(session({
   secret: 'eShopSecret',
@@ -42,7 +43,7 @@ app.use(session({
   cookie:{ maxAge : 180 * 60 * 1000}
 }));
 
-//app.use(forceSSL());
+app.use(forceSSL());
 
 app.get('*', function (req, res) {
   res.sendfile(path.join(__dirname, 'dist/index.html'));

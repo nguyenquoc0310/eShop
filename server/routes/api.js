@@ -75,7 +75,7 @@ router.delete('/products/:id', function (req, res) {
 router.get('/carts/:id', function (req, res, next) {
   var productId = req.params.id;
   console.log(req.session);
-  var cart = new Cart({});
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
 
   Product.findById(productId, function (err, product) {
     if (err) {
