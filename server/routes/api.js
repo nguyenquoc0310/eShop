@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var Product = require('../models/product.js')
+var Product = require('../models/product.js');
+var Cart = require('../models/cart.js');
 var router = express.Router();
 
 var db = 'mongodb://quocn:1234@ds147974.mlab.com:47974/eshop';
@@ -68,6 +69,22 @@ router.delete('/products/:id', function (req, res) {
     } else {
       res.json(product);
     }
+  });
+});
+
+router.get('/carts/:id', function (req, res, next) {
+  var productId = req.params.id;
+  console.log(req.session);
+  var cart = new Cart({});
+
+  Product.findById(productId, function (err, product) {
+    if (err) {
+      return res.redirect('/');
+    }
+    cart.add(product, product.id);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    res.redirect('/');
   });
 });
 

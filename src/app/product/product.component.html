@@ -1,3 +1,47 @@
-<p>
-  product works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"
+         *ngFor="let product of products | paginate : {itemsPerPage: pageSize, totalPage:total, currentPage:p}">
+      <div class="thumbnail">
+        <img src="../../assets/image/product/Apple_iPhone6_Reuters.jpg" alt=""
+             class="img-responsive"/>
+        <div class="caption">
+          <h4 class="pull-right">${{product.price}}</h4>
+          <h4><a href="#">{{product.title}}</a></h4>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="ratings">
+          <p>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            (15 reviews)
+          </p>
+        </div>
+        <div class="space-ten"></div>
+        <div class="btn-ground text-center">
+          <button type="button" class="btn btn-primary" (click)="addToCart(product)"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+          <button type="button" class="btn btn-primary"
+                  [routerLink]="['/product', product._id]" routerLinkActive="active"><i
+            class="fa fa-search"></i> Quick View
+          </button>
+        </div>
+        <div class="space-ten"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <pagination-controls
+      (pageChange)="p =$event"
+      maxSize="9"
+      directionLinks="true"
+      previousLabel="Previous"
+      nextLabel="Next"
+      screenReaderPaginationLabel="Pagination"
+      screenReaderPageLabel="page"
+      screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+</div>

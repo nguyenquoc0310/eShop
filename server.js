@@ -2,6 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
+var mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var app = new express();
 
@@ -28,6 +31,16 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(morgan('dev'));
 
 app.use('/api', api);
+
+//app.use(cookieP)
+
+app.use(session({
+  secret: 'eShopSecret',
+  resave : false,
+  saveUninitialized : false,
+  store: new MongoStore({mongooseConnection : mongoose.connection}),
+  cookie:{ maxAge : 180 * 60 * 1000}
+}));
 
 //app.use(forceSSL());
 

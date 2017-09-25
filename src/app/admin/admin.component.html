@@ -1,5 +1,4 @@
 <app-product-list
-  *ngIf="products"
   [products]="products"
   (onDeleteProductEvent)="deleteProduct($event)"
   (onUpdateProductEvent)="updateProductSelected($event)">

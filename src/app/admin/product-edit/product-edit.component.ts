@@ -16,7 +16,7 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateProduct(m_product: Product) {
-    this.onProductUpdateEvent.emit(m_product);
+  updateProduct() {
+    this.onProductUpdateEvent.emit(this.productEdit);
   }
 }
