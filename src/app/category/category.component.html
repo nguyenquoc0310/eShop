@@ -1,3 +1,12 @@
-<p>
-  category works!
-</p>
+<div>
+  <h3>Categories</h3>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let category of categories"
+          [routerLink]="['/product/type', category.type]" routerLinkActive="active"
+      >{{category.name}} <span class="badge">12</span>
+      </li>
+    </ul>
+  </div>
+</div>
+

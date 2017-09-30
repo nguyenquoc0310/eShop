@@ -16,7 +16,10 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {ProductEditComponent} from './admin/product-edit/product-edit.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { CardComponent } from './card/card.component';
+import {CartComponent} from './cart/cart.component';
+import {CartService} from './cart.service';
+import {LocalStorageService, StorageService} from './local-storage.service';
+import {CategoryService} from './category.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { CardComponent } from './card/card.component';
     ProductNewComponent,
     ProductListComponent,
     ProductEditComponent,
-    CardComponent
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,16 @@ import { CardComponent } from './card/card.component';
     AppRoutingModule,
     NgxPaginationModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    CartService,
+    LocalStorageService,
+    {
+      provide: StorageService,
+      useClass: LocalStorageService
+    },
+    CategoryService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

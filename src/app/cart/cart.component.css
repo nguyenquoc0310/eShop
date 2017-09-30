@@ -1,0 +1,16 @@
+.table>tbody>tr>td, .table>tfoot>tr>td{
+  vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+  .actions .btn{
+    width:36%;
+    margin:1.5em 0;
+  }
+
+  .actions .btn-info{
+    float:left;
+  }
+  .actions .btn-danger{
+    float:right;
+  }
+}

@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../product';
 import {ProductService} from '../product.service';
 import {ActivatedRoute, Params} from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,16 +11,24 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  productDetail: Product;
+  productDetail: Product = new Product();
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private cartService: CartService) {
   }
 
   ngOnInit() {
     this.route.params
-      .switchMap((params: Params) => this.productService.getProduct(+params['product-id']))
-      .subscribe(product => this.productDetail = product);
+      .map(params => params['id'])
+      .switchMap(id => this.productService.getProduct(id))
+      .subscribe(product => {
+        this.productDetail = product;
+      });
+  }
+
+  addToCart(product: Product, qty: number) {
+    this.cartService.addCart(product, qty);
   }
 
 }

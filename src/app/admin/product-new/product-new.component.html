@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <h1>Product New</h1>
   <form>
     <div class="form-group">
@@ -7,17 +7,45 @@
     </div>
     <div class="form-group">
       <label>Description </label>
-      <input type="input" class="form-control" name="description" placeholder="Description"
-             [(ngModel)]="product.description" required>
+      <textarea class="form-control" rows="5"
+                class="form-control" name="description" placeholder="Description"
+                [(ngModel)]="product.description" required></textarea>
     </div>
     <div class="form-group">
       <label>Price </label>
-      <input type="input" class="form-control" name="price" placeholder="Price" [(ngModel)]="product.price" required>
+      <div class="input-group">
+        <input type="input" class="form-control" name="price" placeholder="10000" [(ngModel)]="product.price"
+               required>
+        <span class="input-group-addon">$</span>
+      </div>
     </div>
     <div class="form-group">
-      <label>Quantity </label>
-      <input type="input" class="form-control" name="quantity" placeholder="Quantity" [(ngModel)]="product.quantity"
-             required>
+      <label>Quantity</label>
+      <div>
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="product.quantity" value="1"
+               required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <img src="http://placehold.it/100x100" alt="..." class="img-responsive"/>
+      <input type="file">
+    </div>
+    <div class="form-group">
+      <label>Rate</label>
+      <div>
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="product.rate" value="1"
+               required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select>
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
     </div>
     <button type="submit" class="btn btn-primary" (click)="createNewProduct(product)">Submit</button>
   </form>

@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Product = require('../models/product.js');
-var Cart = require('../models/cart.js');
+var Category = require('../models/category.js');
 var router = express.Router();
 
 var db = 'mongodb://quocn:1234@ds147974.mlab.com:47974/eshop';
@@ -27,16 +27,27 @@ router.get('/products', function (req, res) {
     });
 });
 
-// Get A Product
-router.get('/products/:id', function (req, res) {
-  Product.find({_id: req.params.id})
-    .exec(function (err, product) {
+// Get All Products By CategoryType
+router.get('/products/type/:categoryType', function (req, res) {
+  Product.find({'categoryType': req.params.categoryType})
+    .exec(function (err, products) {
       if (err) {
         console.log('Error ')
       } else {
-        res.json(product);
+        res.json(products);
       }
     });
+});
+
+// Get A Product
+router.get('/products/:id', function (req, res) {
+  Product.findById(req.params.id, function (err, product) {
+    if (err) {
+      console.log('Error ')
+    } else {
+      res.json(product);
+    }
+  });
 });
 
 // Create A product
@@ -72,20 +83,90 @@ router.delete('/products/:id', function (req, res) {
   });
 });
 
-router.get('/carts/:id', function (req, res, next) {
-  var productId = req.params.id;
-  console.log(req.session);
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
+// Get All Categories
+router.get('/categories', function (req, res) {
+  Category.find({})
+    .exec(function (err, categories) {
+      if (err) {
+        console.log('Error ')
+      } else {
+        res.json(categories);
+      }
+    });
+});
 
-  Product.findById(productId, function (err, product) {
+// Get All Categories
+// router.get('/categories', function (req, res) {
+//   Product.aggregate([{
+//     $lookup: {
+//       from: "category", // collection name in db
+//       localField: "categoryType",
+//       foreignField: "type",
+//       as: "productTmp"
+//     }}
+//     ,{
+//     $group:
+//       {
+//         _id: "$categoryType",
+//         total:
+//           {
+//             $sum: 1
+//           }
+//       }
+//   }], function (err, categories) {
+//     if (err) {
+//       console.log('Error ')
+//     } else {
+//       console.log(categories);
+//       res.json(categories);
+//
+//     }
+//   });
+// });
+
+// Get A Category
+router.get('/categories/:id', function (req, res) {
+  Category.findById(req.params.id, function (err, category) {
     if (err) {
-      return res.redirect('/');
+      console.log('Error ')
+    } else {
+      res.json(category);
     }
-    cart.add(product, product.id);
-    req.session.cart = cart;
-    console.log(req.session.cart);
-    res.redirect('/');
   });
 });
+
+// Create A Category
+router.post('/categories', function (req, res) {
+  Category.create(req.body, function (err, category) {
+    if (err) {
+      console.log('Error ')
+    } else {
+      res.json(category);
+    }
+  });
+});
+
+// Update A Category
+router.put('/categories/:id', function (req, res) {
+  Category.update({_id: req.params.id}, req.body, function (err, category) {
+    if (err) {
+      console.log('Error ')
+    } else {
+      res.json(category);
+    }
+  });
+});
+
+// Delete A Category
+router.delete('/categories/:id', function (req, res) {
+  Category.deleteOne({_id: req.params.id}, function (err, category) {
+    if (err) {
+      console.log('Error ')
+    } else {
+      res.json(category);
+    }
+  });
+});
+
 
 module.exports = router;
