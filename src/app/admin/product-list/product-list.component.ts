@@ -27,6 +27,6 @@ export class ProductListComponent implements OnInit {
   }
 
   showNewProduct() {
-    this.onShowNewProductEvent.emit();
+    this.onShowNewProductEvent.emit('Show');
   }
 }

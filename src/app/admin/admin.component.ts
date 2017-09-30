@@ -78,7 +78,7 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  showNewProductEvent() {
+  showNewProductEvent(status: any) {
     this.setStatus(1);
   }
 }

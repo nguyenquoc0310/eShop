@@ -125,7 +125,7 @@ var AdminComponent = (function () {
                 break;
         }
     };
-    AdminComponent.prototype.showNewProductEvent = function () {
+    AdminComponent.prototype.showNewProductEvent = function (status) {
         this.setStatus(1);
     };
     return AdminComponent;
@@ -276,7 +276,7 @@ var ProductListComponent = (function () {
         this.onUpdateProductEvent.emit(m_product);
     };
     ProductListComponent.prototype.showNewProduct = function () {
-        this.onShowNewProductEvent.emit();
+        this.onShowNewProductEvent.emit('Show');
     };
     return ProductListComponent;
 }());
