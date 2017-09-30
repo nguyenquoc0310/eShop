@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4575cfc9-5110-4b3d-8125-fed9b679d39a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" afterPath="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" afterPath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -20,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product-new.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product-new.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9">
-              <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+            <state relative-caret-position="139">
+              <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -33,8 +34,8 @@
       <file leaf-file-name="product-new.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="52" lean-forward="true" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+            <state relative-caret-position="102">
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
               <folding>
                 <element signature="e#0#81#0" expanded="true" />
               </folding>
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,6 +162,7 @@
       <find>session</find>
       <find>getListProducts</find>
       <find>i</find>
+      <find>uploadImage</find>
     </findStrings>
     <replaceStrings>
       <replace>./themes/</replace>
@@ -226,11 +228,11 @@
         <option value="$PROJECT_DIR$/src/app/admin/product-list/product-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/admin.component.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/admin.component.html" />
-        <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" />
         <option value="$PROJECT_DIR$/src/app/project-service.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts" />
         <option value="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" />
       </list>
     </option>
   </component>
@@ -366,7 +368,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="F:\Dev\MeanStack\MeanStack\eShop\node_modules\tslint" />
-    <property name="SearchEverywhereHistoryKey" value="productde&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product-detail/product-detail.component.html&#10;produnew&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-new/product-new.component.ts&#10;produ&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-new/product-new.component.html&#10;serve&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server.js&#10;produlis&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-list/product-list.component.ts&#10;server&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server.js&#10;cart&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;header&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.html&#10;produts&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product.ts&#10;product&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server/models/product.js&#10;cate&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/category/category.component.html&#10;api&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server/routes/api.js&#10;rout&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;hea&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.html&#10;m&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;ca&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;car&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;pr&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.html&#10;inde&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/index.html&#10;prod&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product-detail/product-detail.component.html&#10;module&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;approut&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;productts&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.ts&#10;pro&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.ts&#10;ser&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product.service.ts&#10;list&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-list/product-list.component.ts&#10;head&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.ts&#10;produc&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.html&#10;mo&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;modu&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;edit&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-edit/product-edit.component.html" />
+    <property name="SearchEverywhereHistoryKey" value="produc&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-new/product-new.component.html&#10;productde&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product-detail/product-detail.component.html&#10;produnew&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-new/product-new.component.ts&#10;produ&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-new/product-new.component.html&#10;serve&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server.js&#10;produlis&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-list/product-list.component.ts&#10;server&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server.js&#10;cart&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;header&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.html&#10;produts&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product.ts&#10;product&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server/models/product.js&#10;cate&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/category/category.component.html&#10;api&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/server/routes/api.js&#10;rout&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;hea&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.html&#10;m&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;ca&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;car&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/cart/cart.component.html&#10;pr&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.html&#10;inde&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/index.html&#10;prod&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product-detail/product-detail.component.html&#10;module&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;approut&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app-routing.module.ts&#10;productts&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.ts&#10;pro&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product/product.component.ts&#10;ser&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/product.service.ts&#10;list&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-list/product-list.component.ts&#10;head&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/header/header.component.ts&#10;mo&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;modu&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/app.module.ts&#10;edit&#9;FILE&#9;file://F:/Dev/MeanStack/MeanStack/eShop/src/app/admin/product-edit/product-edit.component.html" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -437,7 +439,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143922000" />
+    <option name="totallyTimeSpent" value="144607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -902,24 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="52" lean-forward="true" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9">
-          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/product-detail/product-detail.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -930,8 +914,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding />
         </state>
       </provider>
