@@ -1453,7 +1453,6 @@ var ProductComponent = (function () {
     ProductComponent.prototype.addToCart = function (product, qty) {
         this.cartService.addCart(product, qty);
         var totalQty = this.cartService.getTotalQty();
-        this.router.navigate(['/header']);
     };
     return ProductComponent;
 }());

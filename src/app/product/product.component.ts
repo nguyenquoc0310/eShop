@@ -64,6 +64,5 @@ export class ProductComponent implements OnInit {
   addToCart(product: Product, qty: number) {
     this.cartService.addCart(product, qty);
     const totalQty = this.cartService.getTotalQty();
-    this.router.navigate(['/header']);
   }
 }
