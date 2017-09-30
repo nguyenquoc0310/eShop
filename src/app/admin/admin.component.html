@@ -1,15 +1,17 @@
 <app-product-list
   [products]="products"
   (onDeleteProductEvent)="deleteProduct($event)"
-  (onUpdateProductEvent)="updateProductSelected($event)">
+  (onUpdateProductEvent)="updateProductSelected($event)"
+  (onShowNewProductEvent)="showNewProductEvent($event)"
+>
 </app-product-list>
 
-<app-product-new *ngIf="!isUpdate"
+<app-product-new *ngIf="isNew && !isUpdate"
                  (onCreateProductEvent)="createNewProduct($event)">
 </app-product-new>
 
 <app-product-edit
-  *ngIf="productSelected && isUpdate"
+  *ngIf="productSelected && isUpdate && !isNew"
   [productEdit]="productSelected"
   (onProductUpdateEvent)="submitProduct($event)">
 </app-product-edit>

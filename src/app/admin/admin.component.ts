@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
   products: Array<Product>;
   productSelected: Product;
   isUpdate = false;
+  isNew = false;
 
   constructor(private productService: ProductService) {
   }
@@ -21,7 +22,10 @@ export class AdminComponent implements OnInit {
 
   getListProducts() {
     this.productService.getListProducts()
-      .then(products => this.products = products)
+      .then(products => {
+        this.products = products;
+        this.setStatus(3);
+      })
       .catch(err => console.log(err));
   }
 
@@ -29,6 +33,7 @@ export class AdminComponent implements OnInit {
     this.productService.createProduct(product)
       .then(res => {
         this.getListProducts();
+        this.setStatus(1);
       })
       .catch(err => console.log(err));
   }
@@ -37,12 +42,13 @@ export class AdminComponent implements OnInit {
     this.productService.deleteProduct(product)
       .then(res => {
         this.getListProducts();
+        this.setStatus(3);
       })
       .catch(err => console.log(err));
   }
 
   updateProductSelected(product: any) {
-    this.isUpdate = true;
+    this.setStatus(2);
     this.productSelected = product;
   }
 
@@ -50,8 +56,29 @@ export class AdminComponent implements OnInit {
     this.productService.updateProduct(product)
       .then(res => {
         this.getListProducts();
-        this.isUpdate = false;
+        this.setStatus(1);
       })
       .catch(err => console.log(err));
+  }
+
+  setStatus(mode: number) {
+    switch (mode) {
+      case 1 :
+        this.isNew = true;
+        this.isUpdate = false;
+        break;
+      case 2:
+        this.isNew = false;
+        this.isUpdate = true;
+        break;
+      default :
+        this.isNew = false;
+        this.isUpdate = false;
+        break;
+    }
+  }
+
+  showNewProductEvent() {
+    this.setStatus(1);
   }
 }

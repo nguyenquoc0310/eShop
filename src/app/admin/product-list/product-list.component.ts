@@ -10,6 +10,7 @@ export class ProductListComponent implements OnInit {
   @Input() products: Array<Product>;
   @Output() onUpdateProductEvent = new EventEmitter();
   @Output() onDeleteProductEvent = new EventEmitter();
+  @Output() onShowNewProductEvent = new EventEmitter();
 
   constructor() {
   }
@@ -23,5 +24,9 @@ export class ProductListComponent implements OnInit {
 
   updateProductSelected(m_product: Product) {
     this.onUpdateProductEvent.emit(m_product);
+  }
+
+  showNewProduct() {
+    this.onShowNewProductEvent.emit();
   }
 }

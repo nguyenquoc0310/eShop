@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {Product} from '../../product';
 
 @Component({
@@ -7,6 +7,7 @@ import {Product} from '../../product';
   styleUrls: ['./product-new.component.css']
 })
 export class ProductNewComponent implements OnInit {
+  @ViewChild('fileInput') fileInput;
 
   product: Product = new Product();
   @Output() onCreateProductEvent = new EventEmitter();
