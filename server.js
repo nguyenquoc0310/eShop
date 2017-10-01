@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(morgan('dev'));
 
-app.use(forceSSL());
+//app.use(forceSSL());
 
 app.use('/api', api);
 app.use('/upload', upload);
