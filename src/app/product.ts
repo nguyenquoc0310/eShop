@@ -5,6 +5,6 @@ export class Product {
   public price: number;
   public quantity: number;
   public image: String;
-  public rate: number;
+  public commentNum: number;
   public categoryType: String;
 }

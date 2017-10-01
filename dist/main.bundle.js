@@ -78,12 +78,23 @@ var AdminComponent = (function () {
         })
             .catch(function (err) { return console.log(err); });
     };
-    AdminComponent.prototype.createNewProduct = function (product) {
+    AdminComponent.prototype.createNewProduct = function (params) {
         var _this = this;
-        this.productService.createProduct(product)
+        // Update file name image
+        var imageFile = params.formData.get('image').name;
+        var p_Product = params.product;
+        params.product.image = imageFile;
+        params.formData.append('product', p_Product);
+        this.productService.createProduct(params.product)
             .then(function (res) {
+            _this.uploadImage(params.formData);
             _this.getListProducts();
             _this.setStatus(1);
+        })
+            .catch(function (err) { return console.log(err); });
+    };
+    AdminComponent.prototype.uploadImage = function (params) {
+        this.productService.uploadImageProduct(params).then(function (res) {
         })
             .catch(function (err) { return console.log(err); });
     };
@@ -317,7 +328,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "/* Reset Select */\r\nselect {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n  -ms-appearance: none;\r\n  appearance: none;\r\n  outline: 0;\r\n  box-shadow: none;\r\n  border: 0 !important;\r\n  background: #337ab7;\r\n  background-image: none;\r\n}\r\n/* Custom Select */\r\n.select {\r\n  position: relative;\r\n  display: block;\r\n  width: 20em;\r\n  height: 3em;\r\n  line-height: 3;\r\n  background: #34495e;\r\n  overflow: hidden;\r\n  border-radius: .25em;\r\n}\r\nselect {\r\n  width: 100%;\r\n  height: 100%;\r\n  margin: 0;\r\n  padding: 0 0 0 .5em;\r\n  color: #fff;\r\n  cursor: pointer;\r\n}\r\nselect::-ms-expand {\r\n  display: none;\r\n}\r\n/* Arrow */\r\n.select::after {\r\n  content: '\\25BC';\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  padding: 0 1em;\r\n  background: #34495e;\r\n  pointer-events: none;\r\n}\r\n/* Transition */\r\n.select:hover::after {\r\n  color: #f39c12;\r\n}\r\n.select::after {\r\n  transition: .25s all ease;\r\n}\r\n", ""]);
 
 // exports
 
@@ -330,7 +341,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/product-new/product-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1>Product New</h1>\n  <form>\n    <div class=\"form-group\">\n      <label>Title </label>\n      <input type=\"input\" class=\"form-control\" name=\"title\" placeholder=\"Title\" [(ngModel)]=\"product.title\" required>\n    </div>\n    <div class=\"form-group\">\n      <label>Description </label>\n      <textarea class=\"form-control\" rows=\"5\"\n                class=\"form-control\" name=\"description\" placeholder=\"Description\"\n                [(ngModel)]=\"product.description\" required></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Price </label>\n      <div class=\"input-group\">\n        <input type=\"input\" class=\"form-control\" name=\"price\" placeholder=\"10000\" [(ngModel)]=\"product.price\"\n               required>\n        <span class=\"input-group-addon\">$</span>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Quantity</label>\n      <div>\n        <input type=\"number\" class=\"form-control\" name=\"quantity\" [(ngModel)]=\"product.quantity\" value=\"1\"\n               required>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Image</label>\n      <img src=\"http://placehold.it/100x100\" alt=\"...\" class=\"img-responsive\"/>\n      <input type=\"file\" #fileInput>\n    </div>\n    <div class=\"form-group\">\n      <label>Rate</label>\n      <div>\n        <input type=\"number\" class=\"form-control\" name=\"quantity\" [(ngModel)]=\"product.rate\" value=\"1\"\n               required>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Category</label>\n      <select>\n        <option selected>Choose...</option>\n        <option value=\"1\">One</option>\n        <option value=\"2\">Two</option>\n        <option value=\"3\">Three</option>\n      </select>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"createNewProduct(product)\">Submit</button>\n  </form>\n</div>\n"
+module.exports = "<div>\n  <h1>Product New</h1>\n  <form enctype=\"multipart/form-data\">\n    <div class=\"form-group\">\n      <label>Title </label>\n      <input type=\"input\" class=\"form-control\" name=\"title\" placeholder=\"Title\" [(ngModel)]=\"product.title\" required>\n    </div>\n    <div class=\"form-group\">\n      <label>Description </label>\n      <textarea class=\"form-control\" rows=\"5\"\n                class=\"form-control\" name=\"description\" placeholder=\"Description\"\n                [(ngModel)]=\"product.description\" required></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Price </label>\n      <div class=\"input-group\">\n        <input type=\"input\" class=\"form-control\" name=\"price\" placeholder=\"10000\" [(ngModel)]=\"product.price\"\n               required>\n        <span class=\"input-group-addon\">$</span>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Quantity</label>\n      <div>\n        <input type=\"number\" class=\"form-control\" name=\"quantity\" [(ngModel)]=\"product.quantity\" value=\"1\"\n               required>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Image</label>\n      <img src=\"http://placehold.it/100x100\" alt=\"...\" class=\"img-responsive\"/>\n      <input type=\"file\" #fileInput placeholder=\"Upload file...\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <div>\n        <input type=\"number\" class=\"form-control\" name=\"quantity\" [(ngModel)]=\"product.commentNum\" value=\"1\"\n               required>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label>Category</label>\n      <div class=\"select\">\n        <select name=\"slct\" id=\"slct\" [(ngModel)]=\"product.categoryType\">\n          <option *ngFor=\"let category of categories\" value=\"{{category.type}}\">{{category.name}}</option>\n        </select>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-info\" (click)=\"createNewProduct(product)\">Submit</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -341,6 +352,7 @@ module.exports = "<div>\n  <h1>Product New</h1>\n  <form>\n    <div class=\"form
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductNewComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__product__ = __webpack_require__("../../../../../src/app/product.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__category_service__ = __webpack_require__("../../../../../src/app/category.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -352,15 +364,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ProductNewComponent = (function () {
-    function ProductNewComponent() {
+    function ProductNewComponent(categoryService) {
+        this.categoryService = categoryService;
         this.product = new __WEBPACK_IMPORTED_MODULE_1__product__["a" /* Product */]();
         this.onCreateProductEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     ProductNewComponent.prototype.ngOnInit = function () {
+        this.getListCategory();
     };
     ProductNewComponent.prototype.createNewProduct = function (m_product) {
-        this.onCreateProductEvent.emit(m_product);
+        var imageFile;
+        imageFile = 'Product' + Date.now() + '.jpg';
+        var formData = new FormData();
+        var fileBrowser = this.fileInput.nativeElement;
+        if (fileBrowser.files && fileBrowser.files[0]) {
+            formData.append('image', fileBrowser.files[0], imageFile);
+        }
+        this.onCreateProductEvent.emit({ product: m_product, formData: formData });
+    };
+    ProductNewComponent.prototype.getListCategory = function () {
+        var _this = this;
+        this.categoryService.getListCategories()
+            .then(function (categories) {
+            _this.categories = categories;
+        })
+            .catch(function (err) { return console.log(err); });
     };
     return ProductNewComponent;
 }());
@@ -378,9 +408,10 @@ ProductNewComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/product-new/product-new.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/product-new/product-new.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__category_service__["a" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__category_service__["a" /* CategoryService */]) === "function" && _a || Object])
 ], ProductNewComponent);
 
+var _a;
 //# sourceMappingURL=product-new.component.js.map
 
 /***/ }),
@@ -429,8 +460,8 @@ var AppRoutingModule = (function () {
 }());
 AppRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
     })
 ], AppRoutingModule);
 
@@ -1302,6 +1333,7 @@ var ProductService = (function () {
         this._getUrl = '/api/products';
         this._getProductByCatUrl = '/api/products/type/';
         this._postUrl = '/api/products';
+        this._uploadUrl = '/upload';
         this._putUrl = '/api/products/';
         this._deleteUrl = '/api/products/';
     }
@@ -1322,6 +1354,11 @@ var ProductService = (function () {
     };
     ProductService.prototype.createProduct = function (product) {
         return this._http.post(this._postUrl, product)
+            .map(function (res) { return res.json(); })
+            .toPromise();
+    };
+    ProductService.prototype.uploadImageProduct = function (params) {
+        return this._http.post(this._uploadUrl, params)
             .map(function (res) { return res.json(); })
             .toPromise();
     };
@@ -1370,7 +1407,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".product_view .modal-dialog{max-width: 800px; width: 100%;}\r\n.pre-cost{text-decoration: line-through; color: #a5a5a5;}\r\n.space-ten{padding: 10px 0;}\r\n", ""]);
+exports.push([module.i, ".product_view .modal-dialog{max-width: 800px; width: 100%;}\r\n.pre-cost{text-decoration: line-through; color: #a5a5a5;}\r\n.space-ten{padding: 10px 0;}\r\n.thumbnail img{\r\n  max-height: 150px;\r\n}\r\n\r\n.text {\r\n  position: relative;\r\n  font-size: 14px;\r\n  color: black;\r\n  font-family: Helvetica,Arial,sans-serif;\r\n  width: 234px; /* Could be anything you like. */\r\n}\r\n\r\n.text-concat {\r\n  padding: 0px;\r\n  position: relative;\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow: hidden;\r\n  max-height: 9.9em; /* (Number of lines you want visible) * (line-height) */\r\n  /*line-height: 1.3em;*/\r\n  text-align:justify;\r\n}\r\n\r\n.text.ellipsis::after {\r\n  content: \"...\";\r\n  position: absolute;\r\n  right: -12px;\r\n  bottom: 5px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -1383,7 +1420,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/product/product.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Products</h3>\n<div *ngIf=\"products.length > 0\">\n  <div class=\"row\">\n    <div class=\"col-md-4\"\n         *ngFor=\"let product of products | paginate : {itemsPerPage: pageSize, totalPage:total, currentPage:p}\">\n      <div class=\"thumbnail\">\n        <img src=\"../../assets/image/product/Apple_iPhone6_Reuters.jpg\" alt=\"\"\n             class=\"img-responsive\"/>\n        <div class=\"caption\">\n          <h4 class=\"pull-right\">${{product.price}}</h4>\n          <h4><a [routerLink]=\"['/product', product._id]\" routerLinkActive=\"active\">{{product.title}}</a></h4>\n          <p>{{product.description}}</p>\n        </div>\n        <div class=\"ratings\">\n          <p>\n            <span class=\"glyphicon glyphicon-star\"></span>\n            <span class=\"glyphicon glyphicon-star\"></span>\n            <span class=\"glyphicon glyphicon-star\"></span>\n            <span class=\"glyphicon glyphicon-star\"></span>\n            <span class=\"glyphicon glyphicon-star\"></span>\n            (15 reviews)\n          </p>\n        </div>\n        <div class=\"space-ten\"></div>\n        <div class=\"btn-ground text-center\">\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"addToCart(product, 1)\" data-toggle=\"modal\"\n                  data-target=\"#myModal\"><i class=\"fa fa-shopping-cart\"></i>\n            Add To Cart\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\"\n                  [routerLink]=\"['/product', product._id]\" routerLinkActive=\"active\"><i\n            class=\"fa fa-search\"></i> Quick View\n          </button>\n        </div>\n        <div class=\"space-ten\"></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"text-center\">\n    <div class=\"col-md-12\">\n      <pagination-controls\n        (pageChange)=\"p =$event\"\n        maxSize=\"9\"\n        directionLinks=\"true\"\n        previousLabel=\"Previous\"\n        nextLabel=\"Next\"\n        screenReaderPaginationLabel=\"Pagination\"\n        screenReaderPageLabel=\"page\"\n        screenReaderCurrentLabel=\"You're on page\"\n      >\n      </pagination-controls>\n    </div>\n  </div>\n\n  <!-- Modal -->\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\n    <div class=\"modal-dialog\">\n\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">Dialog info</h4>\n        </div>\n        <div class=\"modal-body\">\n          <p>\n            This product has been added to list carts.</p>\n        </div>\n        <div class=\"modal-footer\">\n          <a [routerLink]=\"['/carts']\" routerLinkActive=\"active\" class=\"btn btn-info\" data-dismiss=\"modal\">\n            <span class=\"glyphicon glyphicon-shopping-cart\"></span> View cart\n          </a>\n          <a class=\"btn btn-warning\" data-dismiss=\"modal\">\n            <span class=\"glyphicon glyphicon-repeat\"></span> Continue Shopping\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"products.length == 0\">\n  <p>Have no any product.</p>\n</div>\n"
+module.exports = "<h3>Products</h3>\n<div *ngIf=\"products.length > 0\">\n  <div class=\"row\">\n    <div class=\"col-md-4\"\n         *ngFor=\"let product of products | paginate : {itemsPerPage: pageSize, totalPage:total, currentPage:p}\">\n      <div class=\"thumbnail\">\n        <img src=\"../../assets/image/product/{{product.image}}\" alt=\"\"\n             class=\"img-responsive\"/>\n        <div class=\"caption\">\n          <h4><a [routerLink]=\"['/product', product._id]\" routerLinkActive=\"active\">{{product.title}}</a></h4>\n          <h4 class=\"text-danger\">{{product.price | number}} đ</h4>\n          <div class=\"text ellipsis\">\n            <span class=\"text-concat\">\n              {{product.description}}\n            </span>\n          </div>\n        </div>\n        <div>\n            <span *ngIf=\"product.commentNum\" class=\"pull-right text-muted\">\n              <span class=\"glyphicon glyphicon-comment \"></span> {{product.commentNum}} comments\n            </span>\n        </div>\n        <div class=\"space-ten\"></div>\n        <div class=\"space-ten\"></div>\n        <div class=\"btn-ground text-center\">\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"addToCart(product, 1)\" data-toggle=\"modal\"\n                  data-target=\"#myModal\"><i class=\"fa fa-shopping-cart\"></i>\n            Add To Cart\n          </button>\n          <button type=\"button\" class=\"btn btn-primary\"\n                  [routerLink]=\"['/product', product._id]\" routerLinkActive=\"active\"><i\n            class=\"fa fa-search\"></i> Quick View\n          </button>\n        </div>\n        <div class=\"space-ten\"></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"text-center\">\n    <div class=\"col-md-12\">\n      <pagination-controls\n        (pageChange)=\"p =$event\"\n        maxSize=\"9\"\n        directionLinks=\"true\"\n        previousLabel=\"Previous\"\n        nextLabel=\"Next\"\n        screenReaderPaginationLabel=\"Pagination\"\n        screenReaderPageLabel=\"page\"\n        screenReaderCurrentLabel=\"You're on page\"\n      >\n      </pagination-controls>\n    </div>\n  </div>\n\n  <!-- Modal -->\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\n    <div class=\"modal-dialog\">\n\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">Dialog info</h4>\n        </div>\n        <div class=\"modal-body\">\n          <p>\n            This product has been added to list carts.</p>\n        </div>\n        <div class=\"modal-footer\">\n          <a [routerLink]=\"['/carts']\" routerLinkActive=\"active\" class=\"btn btn-info\" data-dismiss=\"modal\">\n            <span class=\"glyphicon glyphicon-shopping-cart\"></span> View cart\n          </a>\n          <a class=\"btn btn-warning\" data-dismiss=\"modal\">\n            <span class=\"glyphicon glyphicon-repeat\"></span> Continue Shopping\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"products.length == 0\">\n  <p>Have no any product.</p>\n</div>\n"
 
 /***/ }),
 
@@ -1413,11 +1450,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var GET_PRODUCT_TYPE_URL = 'product/type/';
 var ProductComponent = (function () {
-    function ProductComponent(productService, cartService, route, router) {
+    function ProductComponent(productService, cartService, route) {
         this.productService = productService;
         this.cartService = cartService;
         this.route = route;
-        this.router = router;
         this.products = new Array();
         // Cart
         this.cart = new __WEBPACK_IMPORTED_MODULE_2__cart__["a" /* Cart */]();
@@ -1462,10 +1498,10 @@ ProductComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/product/product.component.html"),
         styles: [__webpack_require__("../../../../../src/app/product/product.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__cart_service__["a" /* CartService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__cart_service__["a" /* CartService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__cart_service__["a" /* CartService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__cart_service__["a" /* CartService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
 ], ProductComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c;
 //# sourceMappingURL=product.component.js.map
 
 /***/ }),

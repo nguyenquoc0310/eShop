@@ -95,7 +95,7 @@ router.get('/categories', function (req, res) {
     });
 });
 
-// Get All Categories
+// //Get All Categories
 // router.get('/categories', function (req, res) {
 //   Product.aggregate([{
 //     $lookup: {

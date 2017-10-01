@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product.service';
 import {Product} from '../product';
+import {Category} from '../category';
 
 @Component({
   selector: 'app-admin',
@@ -29,12 +30,26 @@ export class AdminComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  createNewProduct(product: any) {
-    this.productService.createProduct(product)
+  createNewProduct(params: any) {
+    // Update file name image
+    const imageFile = params.formData.get('image').name;
+
+    const p_Product: Product = params.product;
+    params.product.image = imageFile;
+    params.formData.append('product', p_Product);
+
+    this.productService.createProduct(params.product)
       .then(res => {
+        this.uploadImage(params.formData);
         this.getListProducts();
         this.setStatus(1);
       })
+      .catch(err => console.log(err));
+  }
+
+  uploadImage(params: any) {
+    this.productService.uploadImageProduct(params).then(res => {
+    })
       .catch(err => console.log(err));
   }
 

@@ -8,6 +8,7 @@ var app = new express();
 var port = process.env.PORT || 3000;
 
 var api = require('./server/routes/api');
+var upload = require('./server/routes/upload.js');
 
 const forceSSL = function() {
   return function (req, res, next) {
@@ -27,10 +28,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.use(morgan('dev'));
 
-//app.use(forceSSL());
+app.use(forceSSL());
 
 app.use('/api', api);
-
+app.use('/upload', upload);
 
 app.get('*', function (req, res) {
   res.sendfile(path.join(__dirname, 'dist/index.html'));

@@ -9,6 +9,7 @@ export class ProductService {
   private _getUrl = '/api/products';
   private _getProductByCatUrl = '/api/products/type/';
   private _postUrl = '/api/products';
+  private _uploadUrl = '/upload';
   private _putUrl = '/api/products/';
   private _deleteUrl = '/api/products/';
 
@@ -35,6 +36,12 @@ export class ProductService {
 
   createProduct(product: Product) {
     return this._http.post(this._postUrl, product)
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  uploadImageProduct(params: any) {
+    return this._http.post(this._uploadUrl, params)
       .map(res => res.json())
       .toPromise();
   }

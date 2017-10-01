@@ -7,7 +7,7 @@ var ProductSchema = new mongoose.Schema({
   quantity: Number,
   image: String,
   categoryType: String,
-  rate: Number
+  commentNum: Number
 });
 
 module.exports = mongoose.model('product', ProductSchema, 'product');

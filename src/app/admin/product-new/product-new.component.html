@@ -1,6 +1,6 @@
 <div>
   <h1>Product New</h1>
-  <form>
+  <form enctype="multipart/form-data">
     <div class="form-group">
       <label>Title </label>
       <input type="input" class="form-control" name="title" placeholder="Title" [(ngModel)]="product.title" required>
@@ -29,24 +29,23 @@
     <div class="form-group">
       <label>Image</label>
       <img src="http://placehold.it/100x100" alt="..." class="img-responsive"/>
-      <input type="file" #fileInput>
+      <input type="file" #fileInput placeholder="Upload file...">
     </div>
     <div class="form-group">
-      <label>Rate</label>
+      <label>Comment</label>
       <div>
-        <input type="number" class="form-control" name="quantity" [(ngModel)]="product.rate" value="1"
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="product.commentNum" value="1"
                required>
       </div>
     </div>
     <div class="form-group">
       <label>Category</label>
-      <select>
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+      <div class="select">
+        <select name="slct" id="slct" [(ngModel)]="product.categoryType">
+          <option *ngFor="let category of categories" value="{{category.type}}">{{category.name}}</option>
+        </select>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="createNewProduct(product)">Submit</button>
+    <button type="submit" class="btn btn-info" (click)="createNewProduct(product)">Submit</button>
   </form>
 </div>

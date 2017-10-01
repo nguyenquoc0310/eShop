@@ -29,8 +29,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private cartService: CartService,
-              private route: ActivatedRoute,
-              private router: Router) {
+              private route: ActivatedRoute) {
     this.url = this.route.snapshot.url.join('/');
     this.pageSize = 6;
   }

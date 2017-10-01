@@ -1,3 +1,32 @@
 .product_view .modal-dialog{max-width: 800px; width: 100%;}
 .pre-cost{text-decoration: line-through; color: #a5a5a5;}
 .space-ten{padding: 10px 0;}
+.thumbnail img{
+  max-height: 150px;
+}
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  font-family: Helvetica,Arial,sans-serif;
+  width: 234px; /* Could be anything you like. */
+}
+
+.text-concat {
+  padding: 0px;
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 9.9em; /* (Number of lines you want visible) * (line-height) */
+  /*line-height: 1.3em;*/
+  text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px;
+  bottom: 5px;
+}

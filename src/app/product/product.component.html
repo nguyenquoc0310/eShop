@@ -4,23 +4,23 @@
     <div class="col-md-4"
          *ngFor="let product of products | paginate : {itemsPerPage: pageSize, totalPage:total, currentPage:p}">
       <div class="thumbnail">
-        <img src="../../assets/image/product/Apple_iPhone6_Reuters.jpg" alt=""
+        <img src="../../assets/image/product/{{product.image}}" alt=""
              class="img-responsive"/>
         <div class="caption">
-          <h4 class="pull-right">${{product.price}}</h4>
           <h4><a [routerLink]="['/product', product._id]" routerLinkActive="active">{{product.title}}</a></h4>
-          <p>{{product.description}}</p>
+          <h4 class="text-danger">{{product.price | number}} đ</h4>
+          <div class="text ellipsis">
+            <span class="text-concat">
+              {{product.description}}
+            </span>
+          </div>
         </div>
-        <div class="ratings">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            (15 reviews)
-          </p>
+        <div>
+            <span *ngIf="product.commentNum" class="pull-right text-muted">
+              <span class="glyphicon glyphicon-comment "></span> {{product.commentNum}} comments
+            </span>
         </div>
+        <div class="space-ten"></div>
         <div class="space-ten"></div>
         <div class="btn-ground text-center">
           <button type="button" class="btn btn-primary" (click)="addToCart(product, 1)" data-toggle="modal"
