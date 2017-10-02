@@ -2,39 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4575cfc9-5110-4b3d-8125-fed9b679d39a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/image/product/Apple_iPhone6_Reuters.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/assets/image/product/Product1506872376598.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.448c34a56d699c29117a.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.89889688147bd7575d63.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/glyphicons-halflings-regular.fa2772327f55d8198301.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/inline.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/main.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/polyfills.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/scripts.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/styles.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/vendor.bundle.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/image/product/Apple_iPhone6_Reuters.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/upload.js" afterPath="$PROJECT_DIR$/server/routes/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/admin.component.ts" afterPath="$PROJECT_DIR$/src/app/admin/admin.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.css" afterPath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html" afterPath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.ts" afterPath="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" afterPath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts" afterPath="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/cart/cart.component.css" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/cart/cart.component.html" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" afterPath="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/product/product.component.html" afterPath="$PROJECT_DIR$/src/app/product/product.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -52,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/product/product.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-561">
-              <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state relative-caret-position="289">
+              <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding>
                 <element signature="e#2311#2318#1" expanded="true" />
               </folding>
@@ -74,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product-edit.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product-edit.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="213">
+              <caret line="47" column="70" lean-forward="false" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -269,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts" />
         <option value="$PROJECT_DIR$/server/routes/upload.js" />
-        <option value="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/product-new/product-new.component.css" />
         <option value="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.css" />
         <option value="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.ts" />
@@ -277,6 +245,7 @@
         <option value="$PROJECT_DIR$/src/app/product-detail/product-detail.component.html" />
         <option value="$PROJECT_DIR$/src/app/cart/cart.component.html" />
         <option value="$PROJECT_DIR$/src/app/product/product.component.html" />
+        <option value="$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html" />
       </list>
     </option>
   </component>
@@ -338,6 +307,32 @@
             <path>
               <item name="eShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="eShop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eShop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eShop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eShop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eShop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="product-edit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -424,12 +419,12 @@
       <workItem from="1506740742503" duration="7965000" />
       <workItem from="1506822910258" duration="7179000" />
       <workItem from="1506847951538" duration="19234000" />
-      <workItem from="1506950640970" duration="9271000" />
+      <workItem from="1506950640970" duration="9726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196803000" />
+    <option name="totallyTimeSpent" value="197258000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,9 +437,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4916067" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4916067" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.50595236" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.4940476" order="7" side_tool="false" content_ui="tabs" />
@@ -813,16 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="23" column="2" lean-forward="false" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/admin/product-new/product-new.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -846,14 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -883,11 +861,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/product/product.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="289">
+          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
           <folding>
             <element signature="e#2311#2318#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="23" column="2" lean-forward="false" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/product-edit/product-edit.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="47" column="70" lean-forward="false" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
