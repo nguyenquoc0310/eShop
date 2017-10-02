@@ -12,6 +12,7 @@ export class ProductNewComponent implements OnInit {
   @ViewChild('fileInput') fileInput;
   categories: Category[];
   product: Product = new Product();
+  url: string;
   @Output() onCreateProductEvent = new EventEmitter();
 
   constructor(private categoryService: CategoryService) {
@@ -28,7 +29,7 @@ export class ProductNewComponent implements OnInit {
     const formData = new FormData();
     const fileBrowser = this.fileInput.nativeElement;
 
-    if (fileBrowser.files && fileBrowser.files[0]) {
+    if (this.fileInput && fileBrowser.files && fileBrowser.files[0]) {
       formData.append('image', fileBrowser.files[0], imageFile);
     }
 
@@ -41,5 +42,10 @@ export class ProductNewComponent implements OnInit {
         this.categories = categories;
       })
       .catch(err => console.log(err));
+  }
+
+  readUrl(event: any) {
+    this.url = event.target.result;
+
   }
 }

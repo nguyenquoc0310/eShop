@@ -32,7 +32,11 @@ export class AdminComponent implements OnInit {
 
   createNewProduct(params: any) {
     // Update file name image
-    const imageFile = params.formData.get('image').name;
+    let imageFile: string;
+
+    if (params.formData.get('image')) {
+      imageFile = params.formData.get('image').name;
+    }
 
     const p_Product: Product = params.product;
     params.product.image = imageFile;
@@ -67,9 +71,22 @@ export class AdminComponent implements OnInit {
     this.productSelected = product;
   }
 
-  submitProduct(product: any) {
-    this.productService.updateProduct(product)
+  submitProduct(params: any) {
+    // Update file name image
+    let imageFile: string;
+
+    const p_Product: Product = params.product;
+
+    if (params.formData.get('image')) {
+      imageFile = params.formData.get('image').name;
+      params.product.image = imageFile;
+    }
+
+    params.formData.append('product', p_Product);
+
+    this.productService.updateProduct(params.product)
       .then(res => {
+        this.uploadImage(params.formData);
         this.getListProducts();
         this.setStatus(1);
       })

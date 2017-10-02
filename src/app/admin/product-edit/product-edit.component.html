@@ -1,24 +1,50 @@
 <div>
   <h1>Product Update</h1>
-  <form>
+  <form enctype="multipart/form-data">
     <div class="form-group">
       <label>Title </label>
-      <input type="input" class="form-control" name="title" placeholder="Title" [(ngModel)]="productEdit.title">
+      <input type="input" class="form-control" name="title" placeholder="Title" [(ngModel)]="productEdit.title" required>
     </div>
     <div class="form-group">
       <label>Description </label>
-      <input type="input" class="form-control" name="description" placeholder="Description"
-             [(ngModel)]="productEdit.description">
+      <textarea class="form-control" rows="5"
+                class="form-control" name="description" placeholder="Description"
+                [(ngModel)]="productEdit.description" required></textarea>
     </div>
     <div class="form-group">
       <label>Price </label>
-      <input type="input" class="form-control" name="price" placeholder="Price" [(ngModel)]="productEdit.price">
+      <div class="input-group">
+        <input type="number" class="form-control" name="price" placeholder="10000" [(ngModel)]="productEdit.price"
+               required>
+        <span class="input-group-addon">đ</span>
+      </div>
     </div>
     <div class="form-group">
-      <label>Quantity </label>
-      <input type="input" class="form-control" name="quantity" placeholder="Quantity"
-             [(ngModel)]="productEdit.quantity">
+      <label>Quantity</label>
+      <div>
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="productEdit.quantity" value="1"
+               required>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="updateProduct()">Submit</button>
+    <div class="form-group">
+      <label>Image</label>
+      <input type="file" #fileInput placeholder="Upload file...">
+    </div>
+    <div class="form-group">
+      <label>Comment</label>
+      <div>
+        <input type="number" class="form-control" name="quantity" [(ngModel)]="productEdit.commentNum" value="1"
+               required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <div class="select">
+        <select name="slct" id="slct" [(ngModel)]="productEdit.categoryType">
+          <option *ngFor="let category of categories" value="{{category.type}}">{{category.name}}</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-info" (click)="updateProduct(productEdit)">Submit</button>
   </form>
 </div>
