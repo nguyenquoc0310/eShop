@@ -9,11 +9,15 @@
         <div class="caption">
           <h4><a [routerLink]="['/product', product._id]" routerLinkActive="active">{{product.title}}</a></h4>
           <h4 class="text-danger">{{product.price | number}} đ</h4>
-          <div class="text ellipsis">
-            <span class="text-concat">
+          <!--<div class="text ellipsis">-->
+            <!--<span class="text-concat">-->
+              <!--{{product.description}}-->
+            <!--</span>-->
+          <!--</div>-->
+
+          <span class="too-much-text">
               {{product.description}}
-            </span>
-          </div>
+          </span>
         </div>
         <div>
             <span *ngIf="product.commentNum" class="pull-right text-muted">

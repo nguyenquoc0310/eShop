@@ -12,6 +12,7 @@ import {CartService} from '../cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   productDetail: Product = new Product();
+  qty: number;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(product: Product, qty: number) {
+    console.log(qty);
     this.cartService.addCart(product, qty);
   }
 
