@@ -95,34 +95,37 @@ router.get('/categories', function (req, res) {
     });
 });
 
-// //Get All Categories
-// router.get('/categories', function (req, res) {
-//   Product.aggregate([{
-//     $lookup: {
-//       from: "category", // collection name in db
-//       localField: "categoryType",
-//       foreignField: "type",
-//       as: "productTmp"
-//     }}
-//     ,{
-//     $group:
-//       {
-//         _id: "$categoryType",
-//         total:
-//           {
-//             $sum: 1
-//           }
-//       }
-//   }], function (err, categories) {
-//     if (err) {
-//       console.log('Error ')
-//     } else {
-//       console.log(categories);
-//       res.json(categories);
-//
-//     }
-//   });
-// });
+//Get categories by group
+router.get('/categories/group', function (req, res) {
+  Product.aggregate([
+    {
+    $lookup: {
+      from: "category", // collection name in db
+      localField: "categoryType",
+      foreignField: "type",
+      as: "categories"
+    }}
+    ,
+    {
+    $group:
+      {
+        _id: "$categoryType",
+        total:
+          {
+            $sum: 1
+          },
+        categories:{ $first: "$categories.name" }
+      }
+  }], function (err, categories) {
+    if (err) {
+      console.log('Error ');
+    } else {
+      console.log(categories);
+      res.json(categories);
+
+    }
+  });
+});
 
 // Get A Category
 router.get('/categories/:id', function (req, res) {

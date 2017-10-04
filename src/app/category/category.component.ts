@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../category.service';
 import {Category} from '../category';
+import {ProductService} from '../product.service';
+import {CategoryGroup} from '../category-group';
 
 @Component({
   selector: 'app-category',
@@ -8,7 +10,7 @@ import {Category} from '../category';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  categories: Category[];
+  categoryGroup: CategoryGroup[];
 
   constructor(private categoryService: CategoryService) {
   }
@@ -18,9 +20,9 @@ export class CategoryComponent implements OnInit {
   }
 
   getListCategories() {
-    this.categoryService.getListCategories()
-      .then(categories => {
-        this.categories = categories;
+    this.categoryService.getListCategoriesGroup()
+      .then(categoryGroup => {
+        this.categoryGroup = categoryGroup;
       })
       .catch(err => console.log(err));
   }

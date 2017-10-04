@@ -1,0 +1,23 @@
+<div>
+  <h2>List Category</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories">
+      <td class="col-md-4">{{category.type}}</td>
+      <td class="col-md-5">{{category.name}}</td>
+      <td class="col-md-3">
+        <input type="button" value="Update" class="btn btn-primary" (click)="updateCategorySelected(category)">
+        <input type="button" value="Delete" class="btn btn-danger" (click)="deleteCategory(category)">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <input type="button" value="New +" class="btn btn-info" (click)="showNewCategory()">
+</div>

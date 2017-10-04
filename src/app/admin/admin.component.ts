@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product.service';
 import {Product} from '../product';
 import {Category} from '../category';
+import {CategoryService} from '../category.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,21 +11,40 @@ import {Category} from '../category';
 })
 export class AdminComponent implements OnInit {
   products: Array<Product>;
+  categories: Array<Category>;
   productSelected: Product;
+  categorySelected: Category;
   isUpdate = false;
   isNew = false;
 
-  constructor(private productService: ProductService) {
+  // mode = 1 : Product
+  // mode = 2 : Category
+  mode: number;
+
+
+  constructor(private productService: ProductService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit() {
+    this.mode = 1;
     this.getListProducts();
+    this.getListCategories();
   }
 
   getListProducts() {
     this.productService.getListProducts()
       .then(products => {
         this.products = products;
+        this.setStatus(3);
+      })
+      .catch(err => console.log(err));
+  }
+
+  getListCategories() {
+    this.categoryService.getListCategories()
+      .then(categories => {
+        this.categories = categories;
         this.setStatus(3);
       })
       .catch(err => console.log(err));
@@ -110,7 +130,53 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  showNewProductEvent(status: any) {
+  showNewProduct(status: any) {
     this.setStatus(1);
+  }
+
+  showNewCategory(status: any) {
+    this.setStatus(1);
+  }
+
+  deleteCategory(category: Category) {
+    this.categoryService.deleteCategory(category)
+      .then(res => {
+        this.getListCategories();
+        this.setStatus(3);
+      })
+      .catch(err => console.log(err));
+  }
+
+  updateCategorySelected(category: Category) {
+    this.setStatus(2);
+    this.categorySelected = category;
+  }
+
+  createNewCategory(category: Category) {
+    this.categoryService.createCategory(category)
+      .then(res => {
+        this.getListProducts();
+        this.getListCategories()
+        this.setStatus(1);
+      })
+      .catch(err => console.log(err));
+  }
+
+  submitCategory(category: Category) {
+    this.categoryService.updateCategory(category)
+      .then(res => {
+        this.getListProducts();
+        this.getListCategories()
+        this.setStatus(1);
+      })
+      .catch(err => console.log(err));
+  }
+
+  changeMode() {
+    if (this.mode === 1) {
+      this.mode = 2;
+    } else {
+      this.mode = 1;
+    }
   }
 }

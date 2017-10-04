@@ -48,11 +48,14 @@
 
   <!-- Botones de compra -->
   <div class="section" style="padding-bottom:20px;">
-    <button class="btn btn-success" (click)="addToCart(productDetail, qty)"><span
-      style="margin-right:20px"
-      class="glyphicon glyphicon-shopping-cart"
-      aria-hidden="true" data-toggle="modal"
-      data-target="#myModal"></span> Add To Cart
+    <button class="btn btn-success"
+            data-toggle="modal"
+            data-target="#myModal"
+            (click)="addToCart(productDetail, qty)">
+      <span
+        class="glyphicon glyphicon-shopping-cart"
+        aria-hidden="true">
+      </span> Add To Cart
     </button>
     <h6><a [routerLink]="['/product']" routerLinkActive="active"><span class="glyphicon glyphicon-heart-empty"
                                                                        style="cursor:pointer;"></span> Continue
@@ -60,7 +63,7 @@
   </div>
 </div>
 
-<div >
+<div>
   <ul class="menu-items">
     <li class="active">Description</li>
     <li>Features</li>

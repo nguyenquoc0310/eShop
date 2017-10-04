@@ -20,6 +20,9 @@ import {CartComponent} from './cart/cart.component';
 import {CartService} from './cart.service';
 import {LocalStorageService, StorageService} from './local-storage.service';
 import {CategoryService} from './category.service';
+import { CategoryListComponent } from './admin/category-list/category-list.component';
+import { CategoryEditComponent } from './admin/category-edit/category-edit.component';
+import { CategoryNewComponent } from './admin/category-new/category-new.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import {CategoryService} from './category.service';
     ProductNewComponent,
     ProductListComponent,
     ProductEditComponent,
-    CartComponent
+    CartComponent,
+    CategoryListComponent,
+    CategoryEditComponent,
+    CategoryNewComponent
   ],
   imports: [
     BrowserModule,
