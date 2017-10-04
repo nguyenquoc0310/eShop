@@ -120,7 +120,6 @@ router.get('/categories/group', function (req, res) {
     if (err) {
       console.log('Error ');
     } else {
-      console.log(categories);
       res.json(categories);
 
     }

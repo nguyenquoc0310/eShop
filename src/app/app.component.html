@@ -1,3 +1,4 @@
+<div *ngIf="!isAdmin">
 <app-header></app-header>
 <div class="container">
   <div class="row">
@@ -10,3 +11,8 @@
   </div>
 </div>
 <app-footer></app-footer>
+</div>
+
+<div *ngIf="isAdmin">
+  <router-outlet></router-outlet>
+</div>
