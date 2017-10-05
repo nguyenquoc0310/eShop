@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Product} from '../product';
 import {ProductService} from '../product.service';
 import {Cart} from '../cart';
@@ -15,6 +15,7 @@ const GET_PRODUCT_TYPE_URL = 'product/type/';
 
 export class ProductComponent implements OnInit {
   products: Array<Product> = new Array<Product>();
+  @Output() onUpdateCartCount = new EventEmitter();
 
   // Cart
   cart: Cart = new Cart();
@@ -63,5 +64,6 @@ export class ProductComponent implements OnInit {
   addToCart(product: Product, qty: number) {
     this.cartService.addCart(product, qty);
     const totalQty = this.cartService.getTotalQty();
+    this.onUpdateCartCount.emit(totalQty);
   }
 }

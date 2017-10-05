@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from './cart.service';
-import {ActivatedRoute} from '@angular/router';
 
-const GET_ADMIN_URL = 'product/type/';
+const GET_ADMIN_URL = '/admin';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +12,14 @@ const GET_ADMIN_URL = 'product/type/';
 export class AppComponent implements OnInit {
   isAdmin: boolean;
   url: string;
+  cartCnt: Number = 0;
 
-  constructor(private cartService: CartService,
-              private route: ActivatedRoute) {
-    this.url = this.route.snapshot.url.join('/');
+  constructor(private cartService: CartService) {
     this.cartService.empty();
   }
 
   ngOnInit(): void {
+    this.url = window.location.href;
     if (this.url.includes(GET_ADMIN_URL)) {
       this.isAdmin = true;
     } else {

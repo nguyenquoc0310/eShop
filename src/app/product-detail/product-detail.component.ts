@@ -13,6 +13,9 @@ import {CartService} from '../cart.service';
 export class ProductDetailComponent implements OnInit {
   productDetail: Product = new Product();
   qty: number;
+  // capitalFlg = 1 : 16G
+  // capitalFlg = 2 : 32G
+  capitalFlg: number;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
@@ -20,6 +23,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.qty = 1;
+    this.capitalFlg = 1;
     this.route.params
       .map(params => params['id'])
       .switchMap(id => this.productService.getProduct(id))
