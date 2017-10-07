@@ -1,107 +1,151 @@
 <h3>Product detail</h3>
-
-<div class="item-photo col-sm-6">
-  <img style="max-width:100%;" src="../../assets/image/product/{{productDetail.image}}" alt=""
-       class="img-responsive style_prevu_kit"/>
-</div>
-<div style="border:0px solid gray" class="col-sm-6">
-  <!-- Datos del vendedor y titulo del producto -->
-  <h3>{{productDetail.title}}</h3>
-  <h5 style="color:#337ab7">
-    <small style="color:#337ab7" *ngIf="productDetail.commentNum">
-      ({{productDetail.commentNum}} comments)
-    </small>
-  </h5>
-
-  <h3 class="text-danger">{{productDetail.price | number}} đ</h3>
-
-  <div class="section" style="padding-bottom:5px;">
-    <h6 class="title-attr">
-      <small>CAPITAL</small>
-    </h6>
-    <div *ngIf="capitalFlg==1">
-      <div class="btn btn-info" (click)="capitalFlg=2">16 GB</div>
-      <div class="btn btn-default" (click)="capitalFlg=2">32 GB</div>
-    </div>
-    <div *ngIf="capitalFlg==2">
-      <div class="btn btn-default" (click)="capitalFlg=1">16 GB</div>
-      <div class="btn btn-info" (click)="capitalFlg=1">32 GB</div>
-    </div>
+<div *ngIf="productDetail">
+  <div class="item-photo col-sm-6">
+    <img style="max-width:100%;" src="../../assets/image/product/{{productDetail.image}}" alt=""
+         class="img-responsive style_prevu_kit"/>
   </div>
-  <div class="section" style="padding-bottom:20px;">
-    <h6 class="title-attr">
-      <small>QUANTITY</small>
-    </h6>
-    <div>
-      <div class="btn btn-default"><span class="glyphicon glyphicon-minus" (click)="qty>0?qty=qty-1:0;"></span></div>
-      <input type="number" [(ngModel)]="qty"/>
-      <div class="btn btn-default"><span class="glyphicon glyphicon-plus" (click)="qty>=0?qty=qty+1:0;"></span></div>
-    </div>
-  </div>
+  <div style="border:0px solid gray" class="col-sm-6">
+    <h3>{{productDetail.title}}</h3>
+    <h5 style="color:#337ab7">
+      <small style="color:#337ab7" *ngIf="productDetail.commentNum">
+        ({{productDetail.commentNum }} comments)
+      </small>
+    </h5>
 
-  <!-- Botones de compra -->
-  <div class="section">
-    <button class="btn btn-success"
-            data-toggle="modal"
-            data-target="#myModal"
-            (click)="addToCart(productDetail, qty)">
+    <h3 class="text-danger">{{productDetail.price | number}} đ</h3>
+
+    <div class="section" style="padding-bottom:5px;">
+      <h6 class="title-attr">
+        <small>CAPITAL</small>
+      </h6>
+      <div *ngIf="capitalFlg==1">
+        <div class="btn btn-info" (click)="capitalFlg=2">16 GB</div>
+        <div class="btn btn-default" (click)="capitalFlg=2">32 GB</div>
+      </div>
+      <div *ngIf="capitalFlg==2">
+        <div class="btn btn-default" (click)="capitalFlg=1">16 GB</div>
+        <div class="btn btn-info" (click)="capitalFlg=1">32 GB</div>
+      </div>
+    </div>
+    <div class="section" style="padding-bottom:20px;">
+      <h6 class="title-attr">
+        <small>QUANTITY</small>
+      </h6>
+      <div>
+        <div class="btn btn-default"><span class="glyphicon glyphicon-minus" (click)="qty>0?qty=qty-1:0;"></span></div>
+        <input type="number" [(ngModel)]="qty"/>
+        <div class="btn btn-default"><span class="glyphicon glyphicon-plus" (click)="qty>=0?qty=qty+1:0;"></span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <button class="btn btn-success"
+              data-toggle="modal"
+              data-target="#myModal"
+              (click)="addToCart(productDetail, qty)">
       <span
         class="glyphicon glyphicon-shopping-cart"
         aria-hidden="true">
       </span> Add To Cart
-    </button>
-  </div>
+      </button>
+    </div>
 
-  <div class="section">
-    <button class="btn btn-warning">
+    <div class="section" [routerLink]="['/product']" routerLinkActive="active">
+      <button class="btn btn-warning goShop">
         <span
-          [routerLink]="['/product']" routerLinkActive="active"
           class="glyphicon glyphicon-share" style="cursor:pointer;" aria-hidden="true">
         </span>
-      Continue Shopping
-    </button>
+        Continue Shopping
+      </button>
+    </div>
   </div>
-</div>
 
-<div>
-  <ul class="nav nav-tabs">
-    <li class="active">Description</li>
-    <li>Features</li>
-  </ul>
-  <div style="width:100%;border-top:1px solid silver">
-    <p style="padding:15px;">
-      <small>
-        {{productDetail.description}}
-      </small>
-    </p>
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#description">Information</a></li>
+      <li><a data-toggle="tab" href="#features">Features</a></li>
+      <li><a data-toggle="tab" href="#comment">Comment</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="description">
+        <p style="padding:15px;">
+          {{productDetail.description}}
+        </p>
+      </div>
+      <div class="tab-pane fade" id="features">
+        <h3>Thông số kỹ thuật</h3>
+        <ul class="list-group">
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Màn hình:	</span>
+            <div>{{productDetail.feature.screen}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Hệ điều hành:	</span>
+            <div>{{productDetail.feature.os}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Camera sau:	</span>
+            <div>{{productDetail.feature.cameraAfter}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Camera trước:	</span>
+            <div>{{productDetail.feature.cameraFront}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">CPU:	</span>
+            <div>{{productDetail.feature.cpu}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">RAM:	</span>
+            <div>{{productDetail.feature.ram}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Bộ nhớ trong:	</span>
+            <div>{{productDetail.feature.capital}}</div>
+          </li>
+          <li class="list-group-item feature-item" *ngIf="productDetail.feature.storage">
+            <span class="text-primary">Thẻ nhớ:	</span>
+            <div>{{productDetail.feature.storage}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Thẻ SIM: </span>
+            <div>{{productDetail.feature.sim}}</div>
+          </li>
+          <li class="list-group-item feature-item">
+            <span class="text-primary">Dung lượng pin: </span>
+            <div>{{productDetail.feature.pin}}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="comment">
+        <app-comment *ngIf="productDetail" [(product)]="productDetail"></app-comment>
+      </div>
+    </div>
   </div>
-</div>
 
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Dialog info</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-          This product has been added to list carts.</p>
-      </div>
-      <div class="modal-footer">
-        <a [routerLink]="['/carts']" routerLinkActive="active" class="btn btn-info" data-dismiss="modal">
-          <span class="glyphicon glyphicon-shopping-cart"></span> View cart
-        </a>
-        <a class="btn btn-warning" data-dismiss="modal">
-          <span class="glyphicon glyphicon-repeat"></span> Continue Shopping
-        </a>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Dialog info</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            This product has been added to list carts.</p>
+        </div>
+        <div class="modal-footer">
+          <a [routerLink]="['/carts']" routerLinkActive="active" class="btn btn-info" data-dismiss="modal">
+            <span class="glyphicon glyphicon-shopping-cart"></span> View cart
+          </a>
+          <a class="btn btn-warning" data-dismiss="modal">
+            <span class="glyphicon glyphicon-repeat"></span> Continue Shopping
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-

@@ -1,50 +1,49 @@
-<ul class="nav nav-tabs" *ngIf="mode === 1">
-  <li class="active"><a (click)="changeMode()">Product</a></li>
-  <li><a (click)="changeMode()">Category</a></li>
+<ul class="nav nav-tabs" xmlns="">
+  <li class="active"><a data-toggle="tab" href="#product" (click)="isNew=false;isUpdate=false;">Product</a></li>
+  <li><a data-toggle="tab" href="#category" (click)="isNew=false;isUpdate=false;">Category</a></li>
 </ul>
+<div class="tab-content">
+  <div id="product" class="tab-pane fade in active">
+    <app-product-list
+      [products]="products"
+      (onDeleteProductEvent)="deleteProduct($event)"
+      (onUpdateProductEvent)="updateProductSelected($event)"
+      (onShowNewProductEvent)="showNewProduct($event)"
+    >
+    </app-product-list>
 
-<ul class="nav nav-tabs" *ngIf="mode === 2">
-  <li><a (click)="changeMode()">Product</a></li>
-  <li class="active"><a (click)="changeMode()">Category</a></li>
-</ul>
+    <app-product-new *ngIf="isNew && !isUpdate"
+                     (onCreateProductEvent)="createNewProduct($event)">
+    </app-product-new>
 
-<app-product-list
-  [products]="products"
-  (onDeleteProductEvent)="deleteProduct($event)"
-  (onUpdateProductEvent)="updateProductSelected($event)"
-  (onShowNewProductEvent)="showNewProduct($event)"
-  *ngIf="mode == 1"
->
-</app-product-list>
+    <app-product-edit
+      *ngIf="productSelected && isUpdate && !isNew"
+      [productEdit]="productSelected"
+      (onProductUpdateEvent)="submitProduct($event)">
+    </app-product-edit>
+  </div>
 
-<app-product-new *ngIf="mode == 1 && isNew && !isUpdate"
-                 (onCreateProductEvent)="createNewProduct($event)">
-</app-product-new>
+  <div id="category" class="tab-pane fade">
+    <app-category-list
+      [categories]="categories"
+      (onDeleteCategory)="deleteCategory($event)"
+      (onShowNewCategory)="showNewCategory($event)"
+      (onUpdateCategorySelected)="updateCategorySelected($event)"
+    >
+    </app-category-list>
 
-<app-product-edit
-  *ngIf="mode == 1 && productSelected && isUpdate && !isNew"
-  [productEdit]="productSelected"
-  (onProductUpdateEvent)="submitProduct($event)">
-</app-product-edit>
+    <app-category-new *ngIf="isNew && !isUpdate"
+                      (onCreateNewCategory)="createNewCategory($event)">
+    </app-category-new>
 
-<app-category-list
-  *ngIf="mode == 2"
-  [categories]="categories"
-  (onDeleteCategory)="deleteCategory($event)"
-  (onShowNewCategory)="showNewCategory($event)"
-  (onUpdateCategorySelected)="updateCategorySelected($event)"
->
-</app-category-list>
+    <app-category-edit
+      *ngIf="categorySelected && isUpdate && !isNew"
+      [category]="categorySelected"
+      (onUpdateCategoryEvent)="submitCategory($event)">
+    </app-category-edit>
+  </div>
+</div>
 
-<app-category-new *ngIf="mode == 2 && isNew && !isUpdate"
-                 (onCreateNewCategory)="createNewCategory($event)">
-</app-category-new>
-
-<app-category-edit
-  *ngIf="mode == 2 && categorySelected && isUpdate && !isNew"
-  [category]="categorySelected"
-  (onUpdateCategoryEvent)="submitCategory($event)">
-</app-category-edit>
 
 
 

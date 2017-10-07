@@ -1,0 +1,38 @@
+#commentSubmit{
+  width: 250px;
+  height: 55px;
+  color: white;
+  font-size: 20px;
+  background-color: #2c95dc;
+  box-shadow: 0 3px 0 #09466f;
+  border-radius: 5px;
+}
+#commentSubmit:hover {
+  background-color: #09466f;
+}
+
+p{
+  font-size: 18px;
+  color: gray;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+p1{
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.sub-text {
+  color:#aaa;
+  font-family:verdana;
+  font-size:11px;
+}
+
+.recent-comment{
+  padding-bottom: 20px;
+}
+
+.recent{
+  padding-top: 20px;
+}

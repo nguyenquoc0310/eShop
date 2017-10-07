@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var Product = require('../models/product.js');
 var Category = require('../models/category.js');
+var Comment = require('../models/comment.js');
 var router = express.Router();
 
 var db = 'mongodb://quocn:1234@ds147974.mlab.com:47974/eshop';
@@ -170,5 +171,27 @@ router.delete('/categories/:id', function (req, res) {
   });
 });
 
+// Get All Comment
+router.get('/comments/:id', function (req, res) {
+  Comment.find({productId: req.params.id})
+    .exec(function (err, comments) {
+      if (err) {
+        console.log('Error ')
+      } else {
+        res.json(comments);
+      }
+    });
+});
+
+// Create A Comment
+router.post('/comments', function (req, res) {
+  Comment.create(req.body, function (err, comment) {
+    if (err) {
+      console.log('Error ')
+    } else {
+      res.json(comment);
+    }
+  });
+});
 
 module.exports = router;

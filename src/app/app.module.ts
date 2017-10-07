@@ -23,6 +23,10 @@ import {CategoryService} from './category.service';
 import { CategoryListComponent } from './admin/category-list/category-list.component';
 import { CategoryEditComponent } from './admin/category-edit/category-edit.component';
 import { CategoryNewComponent } from './admin/category-new/category-new.component';
+import { CommentComponent } from './comment/comment.component';
+import {CommentService} from './comment-service';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,10 @@ import { CategoryNewComponent } from './admin/category-new/category-new.componen
     CartComponent,
     CategoryListComponent,
     CategoryEditComponent,
-    CategoryNewComponent
+    CategoryNewComponent,
+    CommentComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,7 @@ import { CategoryNewComponent } from './admin/category-new/category-new.componen
       useClass: LocalStorageService
     },
     CategoryService,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,5 @@
+import {Features} from './features';
+
 export class Product {
   public _id: String;
   public title: String;
@@ -7,4 +9,5 @@ export class Product {
   public image: String;
   public commentNum: number;
   public categoryType: String;
+  public feature: Features = new Features();
 }

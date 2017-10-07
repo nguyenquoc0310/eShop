@@ -11,7 +11,7 @@ import {CartService} from '../cart.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  productDetail: Product = new Product();
+  productDetail: Product;
   qty: number;
   // capitalFlg = 1 : 16G
   // capitalFlg = 2 : 32G
@@ -25,16 +25,21 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.qty = 1;
     this.capitalFlg = 1;
+    this.getProduct();
+
+  }
+
+  addToCart(product: Product, qty: number) {
+    this.cartService.addCart(product, qty);
+  }
+
+  getProduct() {
     this.route.params
       .map(params => params['id'])
       .switchMap(id => this.productService.getProduct(id))
       .subscribe(product => {
         this.productDetail = product;
       });
-  }
-
-  addToCart(product: Product, qty: number) {
-    this.cartService.addCart(product, qty);
   }
 
 }

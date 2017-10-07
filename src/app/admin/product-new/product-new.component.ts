@@ -10,10 +10,11 @@ import {CategoryService} from '../../category.service';
 })
 export class ProductNewComponent implements OnInit {
   @ViewChild('fileInput') fileInput;
+  @Output() onCreateProductEvent = new EventEmitter();
+
   categories: Category[];
   product: Product = new Product();
   url: string;
-  @Output() onCreateProductEvent = new EventEmitter();
 
   constructor(private categoryService: CategoryService) {
   }
@@ -46,6 +47,5 @@ export class ProductNewComponent implements OnInit {
 
   readUrl(event: any) {
     this.url = event.target.result;
-
   }
 }

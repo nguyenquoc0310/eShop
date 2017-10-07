@@ -3,6 +3,8 @@ import {ProductService} from '../product.service';
 import {Product} from '../product';
 import {Category} from '../category';
 import {CategoryService} from '../category.service';
+import {Features} from '../features';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'app-admin',
@@ -12,22 +14,16 @@ import {CategoryService} from '../category.service';
 export class AdminComponent implements OnInit {
   products: Array<Product>;
   categories: Array<Category>;
-  productSelected: Product;
-  categorySelected: Category;
+  productSelected: Product = new Product();
+  categorySelected: Category = new Category();
   isUpdate = false;
   isNew = false;
-
-  // mode = 1 : Product
-  // mode = 2 : Category
-  mode: number;
-
 
   constructor(private productService: ProductService,
               private categoryService: CategoryService) {
   }
 
   ngOnInit() {
-    this.mode = 1;
     this.getListProducts();
     this.getListCategories();
   }
@@ -86,9 +82,13 @@ export class AdminComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  updateProductSelected(product: any) {
+  updateProductSelected(product: Product) {
     this.setStatus(2);
+    if (isUndefined(product.feature)) {
+      product.feature = new Features();
+    }
     this.productSelected = product;
+
   }
 
   submitProduct(params: any) {
@@ -172,11 +172,4 @@ export class AdminComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-  changeMode() {
-    if (this.mode === 1) {
-      this.mode = 2;
-    } else {
-      this.mode = 1;
-    }
-  }
 }

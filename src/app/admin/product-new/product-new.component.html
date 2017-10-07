@@ -31,18 +31,74 @@
       <input type="file" #fileInput placeholder="Upload file..." (change)="readUrl($event)">
     </div>
     <div class="form-group">
-      <label>Comment</label>
-      <div>
-        <input type="number" class="form-control" name="quantity" [(ngModel)]="product.commentNum" value="1"
-               required>
-      </div>
-    </div>
-    <div class="form-group">
       <label>Category</label>
       <div class="select">
         <select name="slct" id="slct" [(ngModel)]="product.categoryType">
           <option *ngFor="let category of categories" value="{{category.type}}">{{category.name}}</option>
         </select>
+      </div>
+    </div>
+    <hr/>
+    <h3>Features</h3>
+    <div class="form-group">
+      <label>Screen</label>
+      <div>
+        <input type="text" class="form-control" name="screen" [(ngModel)]="product.feature.screen" placeholder="6.3 inch">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>OS</label>
+      <div>
+        <input type="text" class="form-control" name="os" [(ngModel)]="product.feature.os" placeholder="Android 7.0">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Camera Front</label>
+      <div>
+        <input type="text" class="form-control" name="cameraFront" [(ngModel)]="product.feature.cameraFront" placeholder="13 MP">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Camera After</label>
+      <div>
+        <input type="text" class="form-control" name="cameraAfter" [(ngModel)]="product.feature.cameraAfter" placeholder="13 MP">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>CPU</label>
+      <div>
+        <input type="text" class="form-control" name="cpu" [(ngModel)]="product.feature.cpu" placeholder="Exynos 7870 8 nhân 64-bit">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>RAM</label>
+      <div>
+        <input type="text" class="form-control" name="ram" [(ngModel)]="product.feature.ram" placeholder="3 GB">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Capital</label>
+      <div>
+        <input type="text" class="form-control" name="capital" [(ngModel)]="product.feature.capital" placeholder="32 GB">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Storage</label>
+      <div>
+        <input type="text" class="form-control" name="storage" [(ngModel)]="product.feature.storage" placeholder="MicroSD, hỗ trợ tối đa 256 GB">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Sim</label>
+      <div>
+        <input type="text" class="form-control" name="sim" [(ngModel)]="product.feature.sim" placeholder="
+2 Nano SIM, Hỗ trợ 4G">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>PIN</label>
+      <div>
+        <input type="text" class="form-control" name="pin" [(ngModel)]="product.feature.pin" placeholder="3600 mAh">
       </div>
     </div>
     <button type="submit" class="btn btn-info" (click)="createNewProduct(product)">Submit</button>
