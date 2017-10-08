@@ -27,4 +27,7 @@ export class AppComponent implements OnInit {
     }
   }
 
+  changeActivity() {
+    console.log('11212121212');
+  }
 }

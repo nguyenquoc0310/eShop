@@ -9,8 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <link rel="icon" type="image/x-icon" href="assets/icon.ico"/>
 
   <style>
     #back-to-top {
@@ -21,6 +20,7 @@
       display: none;
       z-index: 100;
     }
+
     #back-to-bottom {
       cursor: pointer;
       position: fixed;
@@ -51,6 +51,7 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     };
+
     function bottomFunction() {
       document.body.scrollTop = $(document).height() - $(window).height() - $(window).scrollTop();
       document.documentElement.scrollTop = $(document).height() - $(window).height() - $(window).scrollTop();
