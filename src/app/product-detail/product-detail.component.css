@@ -140,7 +140,7 @@ div.section > div > input {
   }
 
   .section {
-    width: 104%;
+    width: 100%;
   }
 
   .menu-items {
@@ -177,4 +177,6 @@ div.section > div > input {
   transform: scale(1.5);
 }
 
-
+.tabDescription{
+  padding-top: 20px;
+}
