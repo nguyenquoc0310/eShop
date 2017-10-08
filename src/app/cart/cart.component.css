@@ -3,8 +3,7 @@
 }
 @media screen and (max-width: 600px) {
   .actions .btn{
-    width:36%;
-    margin:1.5em 0;
+    margin:0.4em 0;
   }
 
   .actions .btn-info{

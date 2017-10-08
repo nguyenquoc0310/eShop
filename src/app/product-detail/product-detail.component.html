@@ -32,9 +32,9 @@
         <small>QUANTITY</small>
       </h6>
       <div>
-        <div class="btn btn-default" (click)="qty>0?qty=qty-1:0;"><span class="glyphicon glyphicon-minus" ></span></div>
+        <div class="btn btn-default" (click)="qty>1?qty=qty-1:qty=1;"><span class="glyphicon glyphicon-minus"></span></div>
         <input type="number" [(ngModel)]="qty"/>
-        <div class="btn btn-default" (click)="qty>=0?qty=qty+1:0;"><span class="glyphicon glyphicon-plus" ></span></div>
+        <div class="btn btn-default" (click)="qty=qty+1;"><span class="glyphicon glyphicon-plus"></span></div>
       </div>
     </div>
 

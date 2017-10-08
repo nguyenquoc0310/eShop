@@ -30,6 +30,7 @@ export class CommentComponent implements OnInit {
       .then(comment => {
         this.increaseNumComment();
         this.getListComment();
+        this.comment = new Comment();
       })
       .catch(err => console.log(err));
   }
