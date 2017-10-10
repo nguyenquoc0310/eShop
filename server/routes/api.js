@@ -100,24 +100,25 @@ router.get('/categories', function (req, res) {
 router.get('/categories/group', function (req, res) {
   Product.aggregate([
     {
-    $lookup: {
-      from: "category", // collection name in db
-      localField: "categoryType",
-      foreignField: "type",
-      as: "categories"
-    }}
+      $lookup: {
+        from: "category", // collection name in db
+        localField: "categoryType",
+        foreignField: "type",
+        as: "categories"
+      }
+    }
     ,
     {
-    $group:
-      {
-        _id: "$categoryType",
-        total:
-          {
-            $sum: 1
-          },
-        categories:{ $first: "$categories.name" }
-      }
-  }], function (err, categories) {
+      $group:
+        {
+          _id: "$categoryType",
+          total:
+            {
+              $sum: 1
+            },
+          categories: {$first: "$categories.name"}
+        }
+    }], function (err, categories) {
     if (err) {
       console.log('Error ');
     } else {
@@ -173,7 +174,7 @@ router.delete('/categories/:id', function (req, res) {
 
 // Get All Comment
 router.get('/comments/:id', function (req, res) {
-  Comment.find({productId: req.params.id})
+  Comment.find({productId: req.params.id}).sort({date: -1})
     .exec(function (err, comments) {
       if (err) {
         console.log('Error ')
