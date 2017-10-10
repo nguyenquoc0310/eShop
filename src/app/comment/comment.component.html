@@ -23,18 +23,22 @@
         <div class="row">
           <div class="col-md-12">
             <form method="POST">
+              <div class="alert alert-danger" *ngIf="isError===true">
+                    Please input your name and comment !
+              </div>
               <div class="form-group">
                 <label>Name:</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input type="text" class="form-control" name="name" placeholder="Nguyễn Quốc" [(ngModel)]="comment.name">
+                  <input type="text" class="form-control" name="name" placeholder="Nguyễn Quốc"
+                         [(ngModel)]="comment.name">
                 </div>
               </div>
               <div class="form-group">
                 <label>Comment:</label>
                 <textarea class="form-control" rows="5" name="comment" [(ngModel)]="comment.comment"></textarea>
               </div>
-              <input type="submit" id="commentSubmit" name="dsubmit" (click)="createComment()" value="Submit Comment" >
+              <input type="submit" id="commentSubmit" name="dsubmit" (click)="createComment()" value="Submit Comment">
             </form>
           </div>
         </div>
