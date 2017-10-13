@@ -59,11 +59,21 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Dialog info</h4>
+          <h4 class="modal-title">{{productToCart.title}}</h4>
         </div>
         <div class="modal-body">
-          <p>
-            This product has been added to list carts.</p>
+          <span class="row">
+            <p class="col-xs-4 col-md-5" >
+              <img src="../../assets/image/product/{{productToCart.image}}" alt=""
+                   class="img-responsive"/>
+            </p>
+            <span class="col-xs-8 col-md-7 productFont">
+              <h3>{{productToCart.title}}</h3>
+              <h4 class="text-danger">{{productToCart.price | number}} đ</h4>
+              <h4 class="modalProduct">{{productToCart.description}}</h4>
+            </span>
+          </span>
+          <span class="notes productFont text-danger"><b>* This product has been added to list carts.</b></span>
         </div>
         <div class="modal-footer">
           <a [routerLink]="['/carts']" routerLinkActive="active" class="btn btn-info" data-dismiss="modal">
@@ -78,5 +88,5 @@
   </div>
 </div>
 <div *ngIf="products.length == 0">
-  <p>Have no any product.</p>
+  <div class="loader center-block"></div>
 </div>
